@@ -1,20 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Music Search</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openCamera()">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar debounce="300" (ionChange)="onSearchbarChanged($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list> 
+    <ion-item *ngFor="let item of data$ | async" [routerLink]="['/detail/', item['collectionId']]">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item['artworkUrl100']"></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{ item['collectionName'] }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
