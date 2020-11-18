@@ -13,7 +13,7 @@ export class MusicDataService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  searchArtists(artistTerm: string): Observable<any> {
+  searchAlbums(artistTerm: string): Observable<any> {
     const term = artistTerm.replace(/\s/g, '+');
     const queryParams = `term=${term}&entity=album&attribute=albumTerm`;
     const url = `${searchBaseUrl}?${queryParams}`;
