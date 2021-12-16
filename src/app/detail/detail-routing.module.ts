@@ -1,6 +1,5 @@
-import { NgModule, OnInit } from '@angular/core';
-import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { DetailPage } from './detail.page';
 
